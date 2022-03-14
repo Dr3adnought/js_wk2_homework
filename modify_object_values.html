@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Access & Modify Object</title>
+</head>
+
+<body>
+    <script>
+        // Information about the Hiking Bermuda book by Cecile Davidson
+        const hikingBermuda = {
+            author: "Cecile Davidson",
+            price: 17.95,
+            title: "Hiking Bermuda",
+            sections: {
+                0: {
+                    sectionName: "Preface",
+                    chapters: [{
+                        name: "Trail Locator",
+                        page: 12
+                    }]
+                },
+                1: {
+                    sectionName: "Introduction",
+                    chapters: [{
+                            name: "Map Legend",
+                            page: 24
+                        },
+                        {
+                            name: "Rating System",
+                            page: 22
+                        }
+                    ]
+                },
+                2: {
+                    sectionName: "West End",
+                    chapters: [{
+                            name: "Botanical Gardens",
+                            page: 63
+                        },
+                        {
+                            name: "Rockaway, Whale Bay Park",
+                            page: 45
+                        },
+                        {
+                            name: "Somerset Bridge, Hog Bay Park",
+                            page: 39
+                        }
+                    ]
+                }
+            },
+            trails: [{
+                    name: "Somerset to Hamilton Railway Trail",
+                    page: 75,
+                    section: "West End",
+                    distanceInMiles: 11.7,
+                    rating: "Hardy"
+                },
+                {
+                    name: "City of Hamilton",
+                    page: 69,
+                    section: "West End",
+                    distanceInMiles: 2.4,
+                    rating: "Easy"
+                },
+                {
+                    name: "St. George's Point",
+                    page: 131,
+                    section: "East End",
+                    distanceInMiles: 3.6,
+                    rating: "Moderate"
+                },
+                {
+                    name: "South Shore Beaches",
+                    page: 53,
+                    section: "West End",
+                    distanceInMiles: 5.0,
+                    rating: "Moderate"
+                },
+            ]
+        }
+
+        console.log(`Title BEFORE: ${hikingBermuda.title}`)
+        // Modify the title of book from "Hiking Bermuda" to "Hiking Bermuda, 20 Nature Walks and Day Hikes"
+        hikingBermuda.title = "Hiking Bermuda, 20 Nature Walks and Day Hikes";
+
+        console.log(`Title AFTER: ${hikingBermuda.title}`)
+
+        console.log(`Publisher BEFORE: ${hikingBermuda.publisher}`);
+        // Add a publisher property with "VegaNet Publications" as its value and console log it
+        hikingBermuda.publisher = "VegaNet Publications";
+
+        console.log(`Publisher AFTER: ${hikingBermuda.publisher}`);
+
+
+        // Change the page of the 1st chapter in the Preface section to 11 instead of 12 and console log it
+        hikingBermuda.sections["0"].chapters.page = 11;
+        console.log(`Section 0: Preface now starts on page: ${hikingBermuda.sections["0"].chapters.page}`)
+
+        /* Add another section property with 3 as its key and the value an object with the following properties:
+            sectionName: "East End", 
+            chapters: [{name: "Abbot's Cliff", page: 91}, {name: "St. David's Point", page: 105}, {name: "Spittal Pond", page:101}, {name: "Old Town of St. George" , page: 123}]
+        */
+        
+        hikingBermuda.sections["3"] = {sectionName: 'East End'} 
+        hikingBermuda.sections["3"].chapters = [{name: "Abbot's Cliff", page: 91}, {name: "St. David's Point", page: 105}, {name: "Spittal Pond", page:101}, {name: "Old Town of St. George" , page: 123}];
+        console.log(`Added a new Section, with the name: ${hikingBermuda.sections["3"].sectionName}`)
+        
+        // console log the number of chapters in the newly added East End section
+        console.log(`This new section has ${hikingBermuda.sections["3"].chapters.length} chapters.`)
+        
+
+        /* Add another trail with the following properties:
+            name: "Abbot's Cliff", page: 91, section: "East End", distanceInMiles: 1.1, rating: "Moderate"
+        */
+        
+        console.log(hikingBermuda.trails.length)
+        hikingBermuda.trails[4] = {name: "Abbot's Cliff", page: 91, section: "East End", distanceInMiles: 1.1, rating: "Moderate"};
+        console.log(hikingBermuda.trails.length)
+        console.log(`${hikingBermuda.trails[4].name}`)
+        
+        
+        // console log the distance in miles of the newly added trail
+        console.log(hikingBermuda.trails[4].distanceInMiles)
+        console.log(`${hikingBermuda.trails[4].distanceInMiles}`);
+        
+
+        // Add a distanceInKm property to every trail with a value of what its distanceInMiles is converted to km
+        // YOUR CODE GOES HERE
+        // Object.entries(hikingBermuda.trails).sort((a,b) => b[0].localCompare(a[0]));
+        const addingDistanceInKilometers = {
+            a: 'distanceInKilometers',
+            b: '(hikingBermuda.trails.distanceInMiles) * 1.60934'
+        };
+        for (const [key, value] of Object.entries(addingDistanceInKilometers)) {
+            console.log(`${key}: ${value}`);
+        }
+
+        // hikingBermuda.trails = {distanceInKilometers: ([].distanceInMiles * 1.60934)}
+        // console.log(hikingBermuda.trails[1].distanceInKilometers)
+
+        // console log all the trails
+
+        // console log the distance in km of the 4th trail
+        
+    </script>
+</body>
+
+
+</html>
+
+</html>
