@@ -119,37 +119,31 @@
         
         console.log(hikingBermuda.trails.length)
         hikingBermuda.trails[4] = {name: "Abbot's Cliff", page: 91, section: "East End", distanceInMiles: 1.1, rating: "Moderate"};
+        // hikingBermuda.trails.push ({name: "Abbot's Cliff", page: 91, section: "East End", distanceInMiles: 1.1, rating: "Moderate"});
         console.log(hikingBermuda.trails.length)
         console.log(`${hikingBermuda.trails[4].name}`)
         
         
         // console log the distance in miles of the newly added trail
-        console.log(hikingBermuda.trails[4].distanceInMiles)
-        console.log(`${hikingBermuda.trails[4].distanceInMiles}`);
+        console.log(`${hikingBermuda.trails[4].name} is ${hikingBermuda.trails[4].distanceInMiles} in length.`);
         
 
         // Add a distanceInKm property to every trail with a value of what its distanceInMiles is converted to km
         // YOUR CODE GOES HERE
-        // Object.entries(hikingBermuda.trails).sort((a,b) => b[0].localCompare(a[0]));
-        const addingDistanceInKilometers = {
-            a: 'distanceInKilometers',
-            b: '(hikingBermuda.trails.distanceInMiles) * 1.60934'
-        };
-        for (const [key, value] of Object.entries(addingDistanceInKilometers)) {
-            console.log(`${key}: ${value}`);
+        const conversionToKilometers = 1.60934;
+        for (let trail of hikingBermuda.trails) {
+            const convertToKilometers = parseFloat((trail.distanceInMiles * conversionToKilometers).toFixed(1));
+            trail.distanceInKilometers = convertToKilometers;
+            console.log(`${trail.name}: ${trail.distanceInKilometers}km`);
         }
 
-        // hikingBermuda.trails = {distanceInKilometers: ([].distanceInMiles * 1.60934)}
-        // console.log(hikingBermuda.trails[1].distanceInKilometers)
-
-        // console log all the trails
+        console.log(`All Trails: ${hikingBermuda.trails[0].name}, ${hikingBermuda.trails[1].name}, ${hikingBermuda.trails[2].name}, ${hikingBermuda.trails[3].name}, ${hikingBermuda.trails[4].name}`);
 
         // console log the distance in km of the 4th trail
-        
+        console.log(`Distance in KM of the fourth trail: ${hikingBermuda.trails["3"].distanceInKilometers}km`);
+
     </script>
 </body>
 
-
-</html>
 
 </html>
